@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="jquery-1.2.6.min.js"></script>
+  <script>
+	  $(document).ready(function()
+	  {
+		$("#aa").click(function ()
+		{
+		  $(".moveme").slideToggle('normal');
+		});
+
+		// Using multiple unit types within one animation.
+		$("#go").click(function(){
+		  $("#block").animate({ 
+			width: "70%",
+			opacity: 0.4,
+			fontSize: "3em", 
+			borderWidth: "10px"
+		  }, 1500 );
+		});
+
+		// Using multiple unit types within one animation.
+		$("#back").click(function(){
+		  $("#block").animate({ 
+			width: "60px",
+			opacity: 1,
+			fontSize: "3em", 
+			borderWidth: "0px"
+		  }, 1500 );
+		});
+
+		$("#show").click(function(){
+			$("#block").show("slow");
+			$("#block").load("http://www.fairtradefrog.com/index.aspx");
+		});
+		$("#hide").click(function(){
+			$("#block").hide("slow");
+		});
+	  });
+
+  </script>
+  <style>
+	  div { background:#b977d1; margin:3px; width:60px; height:60px; float:left; }
+	  div.hider { background:#345; width:5px; }
+  </style>
+</head>
+<body>
+
+	<button id =aa>Toggle</button>
+	<button id="go">» Go</button>
+	<button id="go">» Run</button>
+	<button id="hide">» Hide</button>
+	<button id="show">» Show</button>
+
+
+	<div class="moveme">don't touch</div>
+	<div class="hider"></div>
+	<div class="moveme">don't touch</div>
+	<div class="hider"></div>
+	<div class="moveme">don't touch</div>
+	<div id="block">Hello!</div>
+
+
+</body>
+</html>

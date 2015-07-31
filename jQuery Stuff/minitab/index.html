@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Untitled Document</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function()
+		{
+			// Prepend list to body -
+			$('.allTabs').append('<ul id="tabs-nav"></ul>');
+			 
+			$('.tabs').each(function(i)
+			{
+				this.id = 'tab'+i;
+				$('.title').remove();
+				var title = (this.title) ? this.title : this.id;
+				var link = '<a href="#' + this.id + '">' + title + '</a>';
+				$('#tabs-nav').append('<li>'+link+'</li>');
+				if (i == 0) $('.tabs:not(#' + this.id + ')').hide();
+			});
+			 
+			$('#tabs-nav a').click(function()
+			{
+				var id = '#' + this.href.split('#')[1];
+				$('.tabs').hide();
+				$(id).fadeIn();
+				return false;
+			});
+		});
+  </script>
+
+</head>
+
+<body>
+  
+	<div class="allTabs"></div>
+
+	<div class="tabs" title="Tab 1 Title">
+		<h1 class="title">Tab 1 Title</h1>
+		Some cool content for the first tab
+	</div>
+	 
+	<div class="tabs" title="Tab 2 Title">
+		<h1 class="title">Tab 2 Title</h1>
+		Some cool content for the second tab
+	</div>
+	 
+	<div class="tabs" title="Tab 3 Title">
+		<h1 class="title">Tab 3 Title</h1>
+		Some cool content for the third tab
+	</div>
+
+</body>
+</html>
